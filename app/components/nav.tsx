@@ -10,14 +10,14 @@ const navItems = {
     name: 'home',
   },
   '/work': {
-    name: 'work',
+    name: 'bookshelf',
   },
-  '/blog': {
-    name: 'blog',
-  },
-  '/guestbook': {
-    name: 'guestbook',
-  },
+  // '/blog': {
+  //   name: 'blog',
+  // },
+  // '/guestbook': {
+  //   name: 'guestbook',
+  // },
 };
 
 export function Navbar() {

@@ -7,12 +7,12 @@ import filming from 'public/images/home/filming.jpg';
 import meetups from 'public/images/home/meetups.jpg';
 import vercel from 'public/images/home/vercel.jpg';
 import avatar from 'app/avatar.jpg';
-import ViewCounter from 'app/blog/view-counter';
-import {
-  getLeeYouTubeSubs,
-  getVercelYouTubeSubs,
-  getViewsCount,
-} from 'app/db/queries';
+// import ViewCounter from 'app/blog/view-counter';
+// import {
+//   getLeeYouTubeSubs,
+//   getVercelYouTubeSubs,
+//   getViewsCount,
+// } from 'app/db/queries';
 import { Suspense } from 'react';
 import Link from 'next/link';
 
@@ -76,7 +76,7 @@ function ChannelLink({ img, link, name }) {
               {name}
             </p>
             <Suspense fallback={<p className="h-6" />}>
-              <Subs name={name} />
+              {/* <Subs name={name} /> */}
             </Suspense>
           </div>
         </div>
@@ -88,20 +88,20 @@ function ChannelLink({ img, link, name }) {
   );
 }
 
-async function Subs({ name }: { name: string }) {
-  let subscribers;
-  if (name === '@leerob') {
-    subscribers = await getLeeYouTubeSubs();
-  } else {
-    subscribers = await getVercelYouTubeSubs();
-  }
+// async function Subs({ name }: { name: string }) {
+//   let subscribers;
+//   if (name === '@leerob') {
+//     subscribers = await getLeeYouTubeSubs();
+//   } else {
+//     subscribers = await getVercelYouTubeSubs();
+//   }
 
-  return (
-    <p className="text-neutral-600 dark:text-neutral-400">
-      {subscribers} subscribers
-    </p>
-  );
-}
+//   return (
+//     <p className="text-neutral-600 dark:text-neutral-400">
+//       {subscribers} subscribers
+//     </p>
+//   );
+// }
 
 function BlogLink({ slug, name }) {
   return (
@@ -115,7 +115,7 @@ function BlogLink({ slug, name }) {
             {name}
           </p>
           <Suspense fallback={<p className="h-6" />}>
-            <Views slug={slug} />
+            {/* <Views slug={slug} /> */}
           </Suspense>
         </div>
         <div className="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
@@ -126,171 +126,87 @@ function BlogLink({ slug, name }) {
   );
 }
 
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
-  return <ViewCounter allViews={views} slug={slug} />;
-}
+// async function Views({ slug }: { slug: string }) {
+//   let views = await getViewsCount();
+//   return <ViewCounter allViews={views} slug={slug} />;
+// }
 
 export default function Page() {
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-        hey, I'm leerob 👋
+        Hey,  I'm Jordan Plows 👋
       </h1>
       <p className="prose prose-neutral dark:prose-invert">
-        {`I'm a frontend developer, optimist, and community builder. I currently `}
+        {`I'm a entreprenuer and full stack developer with a focus AI. I currently `}
         <Link href="/work">work</Link>
-        {` as the VP of Product at `}
+        {` as the Founder and CEO at `}
         <span className="not-prose">
-          <Badge href="https://vercel.com/home">
-            <svg
-              width="13"
-              height="11"
-              viewBox="0 0 13 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="inline-flex mr-1"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M6.5 0L13 11H0L6.5 0Z"
-                fill="currentColor"
-              />
-            </svg>
-            Vercel
+          <Badge href="https://lightchat.co">
+            Light AI
           </Badge>
         </span>
-        {`, where I help teach the `}
-        <Badge href="https://nextjs.org">
-          <img
-            alt="Next.js logomark"
-            src="/next-logo.svg"
-            className="!mr-1"
-            width="14"
-            height="14"
-          />
-          Next.js
-        </Badge>
-        {` community, an open-source web framework built with `}
-        <Badge href="https://react.dev">
-          <img
-            alt="React logomark"
-            src="/react-logo.svg"
-            className="!mr-1 h-[14px] w-[14px]"
-            width="14"
-            height="14"
-          />
-          React
-        </Badge>
         .
       </p>
-      <div className="columns-2 sm:columns-3 gap-4 my-8">
-        <div className="relative h-40 mb-4">
-          <Image
-            alt="Me speaking on stage at React Summit about the future of Next.js"
-            src={summit}
-            fill
-            sizes="(max-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover"
-          />
-        </div>
+      {/* <div className="columns-2 sm:columns-3 gap-4 my-8">
         <div className="relative h-80 mb-4 sm:mb-0">
-          <Image
-            alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-            src={filming}
-            fill
-            sizes="(max-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover object-[-16px] sm:object-center"
-          />
+   
         </div>
         <div className="relative h-40 sm:h-80 sm:mb-4">
-          <Image
-            alt="Me standing on stage at Reactathon delivering the keynote"
-            src={reactathon}
-            fill
-            sizes="(max-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover object-top sm:object-center"
-          />
+      
         </div>
         <div className="relative h-40 mb-4 sm:mb-0">
-          <Image
-            alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-            src={smashing}
-            fill
-            sizes="(max-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover"
-          />
+       
         </div>
         <div className="relative h-40 mb-4">
-          <Image
-            alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
-            src={ship}
-            fill
-            sizes="(max-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover"
-          />
+   
         </div>
         <div className="relative h-80">
-          <Image
-            alt="My badge on top of a pile of badges from a Vercel meetup we held"
-            src={meetups}
-            fill
-            sizes="(min-width: 768px) 213px, 33vw"
-            priority
-            className="rounded-lg object-cover"
-          />
+ 
         </div>
-      </div>
+      </div> */}
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          I create educational content for developers, teaching them about web
-          development, JavaScript and TypeScript, React and Next.js, and more.
-          This comes in all forms: blog posts, videos, tweets, conference talks,
-          and workshops. You can watch some of my favorites below.
+          I am passionate about accelerating the output of human input while exploring unique interfaces that transform how humans interact with AI.
+          Over the next few years I would like to make contributions to artificial intelligence that accelerate UBI, improve diagnostic medicine and advance bipedal humanoid robotics. 
         </p>
       </div>
-      <div className="my-8 flex flex-col sm:flex-row space-x-0 sm:space-x-4 space-y-4 sm:space-y-0 w-full">
+      {/* <div className="my-8 flex flex-col sm:flex-row space-x-0 sm:space-x-4 space-y-4 sm:space-y-0 w-full">
         <ChannelLink
           img={avatar}
           name="@leerob"
-          link="https://www.youtube.com/@leerob"
+          link=""
         />
         <ChannelLink
           img={vercel}
           name="@vercel"
-          link="https://www.youtube.com/@vercelhq"
+          link=""
         />
-      </div>
-      <div className="prose prose-neutral dark:prose-invert">
+      </div> */}
+      {/* <div className="prose prose-neutral dark:prose-invert">
         <p>
           Over the past decade, I've written content on my blog and newsletter.
           I try to keep things simple. You'll find writing about technologies
           I'm interested in at the time, or how I'm learning and growing in my
           career, sharing knowledge along the way.
         </p>
-      </div>
-      <div className="my-8 flex flex-col space-y-4 w-full">
+      </div> */}
+      {/* <div className="my-8 flex flex-col space-y-4 w-full">
         <BlogLink
-          name="What Makes A Great Developer Experience?"
+          name="My experience building an AI ?"
           slug="developer-experience-examples"
         />
         <BlogLink name="What is Developer Relations?" slug="devrel-at-vercel" />
         <BlogLink name="The Story of Heroku" slug="heroku" />
-      </div>
-      <div className="prose prose-neutral dark:prose-invert">
+      </div> */}
+      {/* <div className="prose prose-neutral dark:prose-invert">
         <p>
           I invest small angel checks into early stage startups building tools
           for developers.
         </p>
-      </div>
+      </div> */}
       <div className="my-8 flex flex-row space-x-2 w-full h-14 overflow-x-auto">
-        <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
+        {/* <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
           <svg
             width="78"
             height="20"
@@ -313,8 +229,8 @@ export default function Page() {
               </clipPath>
             </defs>
           </svg>
-        </div>
-        <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
+        </div> */}
+        {/* <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
           <svg
             width="100"
             height="19"
@@ -398,8 +314,8 @@ export default function Page() {
               </clipPath>
             </defs>
           </svg>
-        </div>
-        <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
+        </div> */}
+        {/* <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
           <svg
             width="96"
             height="19"
@@ -414,8 +330,8 @@ export default function Page() {
               fill="#F02EA6"
             />
           </svg>
-        </div>
-        <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
+        </div> */}
+        {/* <div className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4">
           <svg
             width="70"
             height="17"
@@ -456,29 +372,38 @@ export default function Page() {
               </clipPath>
             </defs>
           </svg>
-        </div>
+        </div> */}
       </div>
-      <div className="prose prose-neutral dark:prose-invert">
+      {/* <div className="prose prose-neutral dark:prose-invert">
         <p>
           I've worked with and advised companies on developer marketing,{' '}
           <Link href="/blog/devrel-at-vercel">developer relations</Link>,
           building open-source communities, product-led growth, and more.
         </p>
-      </div>
+      </div> */}
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
         <li>
           <a
             className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/leeerob"
+            href="https://twitter.com/jordantplows"
           >
             <ArrowIcon />
             <p className="h-7 ml-2">follow me</p>
           </a>
+          <a
+            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/plowsai"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">Github</p>
+          </a>
         </li>
         <li>
-          <a
+          {/* <a
             className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
             target="_blank"
@@ -486,7 +411,7 @@ export default function Page() {
           >
             <ArrowIcon />
             <p className="h-7 ml-2">get email updates</p>
-          </a>
+          </a> */}
         </li>
       </ul>
     </section>

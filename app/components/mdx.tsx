@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { TweetComponent } from './tweet';
-import { highlight } from 'sugar-high';
+// import { highlight } from 'sugar-high';
 import React from 'react';
 
 function Table({ data }) {
@@ -112,10 +112,10 @@ function ConsCard({ title, cons }) {
   );
 }
 
-function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-}
+// function Code({ children, ...props }) {
+//   let codeHTML = highlight(children);
+//   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+// }
 
 function slugify(str) {
   return str
@@ -159,7 +159,7 @@ let components = {
   ProsCard,
   ConsCard,
   StaticTweet: TweetComponent,
-  code: Code,
+  // code: Code,
   Table,
 };
 

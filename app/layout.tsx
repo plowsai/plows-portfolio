@@ -9,15 +9,15 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://leerob.io'),
   title: {
-    default: 'Lee Robinson',
-    template: '%s | Lee Robinson',
+    default: 'Jordan Plows',
+    template: '%s | Jordan Plows',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Founder, developer, and hacker',
   openGraph: {
-    title: 'Lee Robinson',
-    description: 'Developer, writer, and creator.',
-    url: 'https://leerob.io',
-    siteName: 'Lee Robinson',
+    title: 'Jordan Plows',
+    description: 'Founder, developer, and hacker.',
+    url: 'https://plows.ai',
+    siteName: 'Jordan Plows',
     locale: 'en_US',
     type: 'website',
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Lee Robinson',
+    title: 'Jordan Plows',
     card: 'summary_large_image',
   },
   verification: {
